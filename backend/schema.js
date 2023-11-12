@@ -2,6 +2,7 @@ export const typeDefs = `#graphql
   type User {
     id: ID!
     name: String
+    userAvatar: String
     email: String!
     posts: [Post!]
     # token: String
@@ -11,6 +12,10 @@ export const typeDefs = `#graphql
     id: ID!
     title: String!
     body: String
+    category: String
+    subCategory: [String]!
+    createdAt: String
+    coverImage: String
     author: User!
     authorId: ID!
   }
@@ -32,18 +37,27 @@ export const typeDefs = `#graphql
   input AddUserInput {
     name: String,
     email: String!
+    userAvatar: String
   }
   input EditUserInput {
     name: String,
     email: String!
+    userAvatar: String
   }
   input AddPostInput {
     title: String!,
     body: String,
     id: String
+    category: String
+    subCategory: [String]!
+    coverImage: String
   }
   input EditPostInput {
-    title: String!,
-    body: String
+    title: String,
+    body: String,
+    id: String
+    category: String
+    subCategory: [String]
+    coverImage: String
   }
 `;

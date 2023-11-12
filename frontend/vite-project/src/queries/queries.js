@@ -35,12 +35,36 @@ export const GET_USER = gql`
 export const GET_POSTS = gql`
   query GetPosts {
     posts {
-      id
       title
       body
+      id
+      category
+      subCategory
+      coverImage
+      authorId
       author {
         email
         name
+        userAvatar
+      }
+    }
+  }
+`;
+
+export const GET_POST = gql`
+  query GetPost($id: ID!) {
+    post(id: $id) {
+      id
+      title
+      body
+      category
+      subCategory
+      createdAt
+      coverImage
+      author {
+        email
+        name
+        userAvatar
       }
     }
   }
